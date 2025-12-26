@@ -2,54 +2,31 @@
 const items = document.querySelectorAll('.fade');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('show');
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
   });
 }, { threshold: 0.3 });
-items.forEach(i => observer.observe(i));
+
+items.forEach(item => observer.observe(item));
 
 
-// Floating romantic stickers (NOT GIFS)
-const stickerContainer = document.querySelector('.sticker-container');
-const stickers = ['🤍', '♡', '✨', '🐾'];
+// Fireflies generator
+const fireflyContainer = document.querySelector('.fireflies');
 
-function createSticker() {
-  const s = document.createElement('span');
-  s.classList.add('sticker');
-  s.textContent = stickers[Math.floor(Math.random() * stickers.length)];
+function createFirefly() {
+  const f = document.createElement('span');
+  f.classList.add('firefly');
 
-  s.style.left = Math.random() * 100 + 'vw';
-  s.style.animationDuration = 10 + Math.random() * 6 + 's';
+  f.style.left = Math.random() * 100 + 'vw';
+  f.style.bottom = '-10px';
+  f.style.animationDuration = 12 + Math.random() * 10 + 's';
+  f.style.opacity = Math.random();
 
-  stickerContainer.appendChild(s);
+  fireflyContainer.appendChild(f);
 
-  setTimeout(() => s.remove(), 16000);
+  setTimeout(() => f.remove(), 22000);
 }
 
-// Soft & aesthetic speed
-setInterval(createSticker, 900);  span.style.animationDuration = 9 + Math.random() * 5 + 's';
-
-  span.appendChild(img);
-  container.appendChild(span);
-
-  setTimeout(() => span.remove(), 15000);
-}
-
-setInterval(createSticker, 1200);
-
-
-// ===== TAP HEART + CAT BURST =====
-document.addEventListener('click', e => {
-  for (let i = 0; i < 8; i++) {
-    const heart = document.createElement('span');
-    heart.classList.add('burst');
-    heart.textContent = ['🤍','🐱','♡'][Math.floor(Math.random()*3)];
-
-    heart.style.left = e.clientX + 'px';
-    heart.style.top = e.clientY + 'px';
-    heart.style.setProperty('--x', (Math.random()*200 - 100) + 'px');
-    heart.style.setProperty('--y', (Math.random()*200 - 100) + 'px');
-
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 1200);
-  }
-});
+// Slow, dreamy pace
+setInterval(createFirefly, 700);
