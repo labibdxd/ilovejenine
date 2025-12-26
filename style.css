@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffe9f1;
+  font-family: system-ui, sans-serif;
+  color: #444;
+}
+
+section {
+  min-height: 100vh;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 44px;
+  color: #ff5c8a;
+}
+
+.text p {
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+.photo img {
+  width: 100%;
+  max-width: 340px;
+  border-radius: 18px;
+}
+
+.end p {
+  font-size: 24px;
+  color: #ff5c8a;
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: 1s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
