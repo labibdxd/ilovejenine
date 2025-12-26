@@ -1,4 +1,4 @@
-// Fade-in
+// Fade-in observer
 const items = document.querySelectorAll('.fade');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -8,24 +8,25 @@ const observer = new IntersectionObserver(entries => {
 items.forEach(i => observer.observe(i));
 
 
-// ===== FLOATING GIFS =====
-const container = document.querySelector('.floating-container');
-
-const gifs = [
-  'luv-u.gif',
-  'cat-cute.gif',
-  'crystal-amaru.gif'
-];
+// Floating romantic stickers (NOT GIFS)
+const stickerContainer = document.querySelector('.sticker-container');
+const stickers = ['🤍', '♡', '✨', '🐾'];
 
 function createSticker() {
-  const span = document.createElement('span');
-  span.classList.add('sticker');
+  const s = document.createElement('span');
+  s.classList.add('sticker');
+  s.textContent = stickers[Math.floor(Math.random() * stickers.length)];
 
-  const img = document.createElement('img');
-  img.src = gifs[Math.floor(Math.random() * gifs.length)];
+  s.style.left = Math.random() * 100 + 'vw';
+  s.style.animationDuration = 10 + Math.random() * 6 + 's';
 
-  span.style.left = Math.random() * 100 + 'vw';
-  span.style.animationDuration = 9 + Math.random() * 5 + 's';
+  stickerContainer.appendChild(s);
+
+  setTimeout(() => s.remove(), 16000);
+}
+
+// Soft & aesthetic speed
+setInterval(createSticker, 900);  span.style.animationDuration = 9 + Math.random() * 5 + 's';
 
   span.appendChild(img);
   container.appendChild(span);
