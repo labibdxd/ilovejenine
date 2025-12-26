@@ -6,8 +6,8 @@
 }
 
 body {
-  background: linear-gradient(160deg, #2c003e, #5d1a5a, #2c003e);
-  color: #ffe4e1; /* soft pinkish-white */
+  background: radial-gradient(circle at top, #3a0f3f, #1b001f 75%);
+  color: #ffe6ec;
   text-align: center;
   overflow-x: hidden;
 }
@@ -17,24 +17,102 @@ section {
   padding: 60px 20px;
 }
 
+/* Title */
 .hero h1 {
-  font-size: 3rem;
+  font-size: 3.2rem;
   letter-spacing: 2px;
-  color: #ffccd9; /* slightly warmer */
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  color: #ffd1dc;
+  text-shadow:
+    0 0 14px rgba(255, 182, 193, 0.7),
+    0 4px 12px rgba(0,0,0,0.6);
 }
 
+/* Text */
 .text p,
 .end p {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  max-width: 800px;
+  font-size: 1.25rem;
+  line-height: 1.9;
+  max-width: 820px;
   margin: auto;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  color: #ffe6ec;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.45);
 }
 
-/* Reduce bottom padding for final section */
+/* End tidy */
 .end {
+  padding-bottom: 30px;
+}
+
+/* Photos */
+.photo img {
+  width: 85%;
+  max-width: 360px;
+  border-radius: 22px;
+  box-shadow:
+    0 25px 45px rgba(0,0,0,0.7),
+    0 0 20px rgba(255, 182, 193, 0.25);
+}
+
+/* Fireflies */
+.fireflies {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.firefly {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 14px rgba(255,255,255,0.9);
+  animation: drift linear infinite;
+}
+
+/* Heartbeat */
+.heartbeat {
+  animation: heartbeat 3s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.02); }
+  30% { transform: scale(0.99); }
+  45% { transform: scale(1.02); }
+}
+
+/* Firefly motion */
+@keyframes drift {
+  from { transform: translateY(0); opacity: 0; }
+  to { transform: translateY(-120vh); opacity: 1; }
+}
+
+/* GIF positioning */
+.side-gif {
+  position: fixed;
+  width: 70px;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.side-gif.left {
+  left: 10px;
+  top: 42%;
+}
+
+.side-gif.right {
+  right: 10px;
+  top: 45%;
+}
+
+.side-gif.bottom {
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}.end {
   padding-bottom: 40px;
 }
 
