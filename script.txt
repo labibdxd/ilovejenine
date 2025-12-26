@@ -1,3 +1,4 @@
+// Fade-in observer
 const items = document.querySelectorAll('.fade');
 
 const observer = new IntersectionObserver(entries => {
@@ -9,3 +10,25 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 
 items.forEach(item => observer.observe(item));
+
+
+// Floating aesthetic stickers
+const container = document.querySelector('.floating-container');
+const stickers = ['🤍', '✨', '♡'];
+
+function createSticker() {
+  const span = document.createElement('span');
+  span.classList.add('sticker');
+  span.textContent = stickers[Math.floor(Math.random() * stickers.length)];
+
+  span.style.left = Math.random() * 100 + 'vw';
+  span.style.animationDuration = 6 + Math.random() * 4 + 's';
+
+  container.appendChild(span);
+
+  setTimeout(() => {
+    span.remove();
+  }, 10000);
+}
+
+setInterval(createSticker, 700);
