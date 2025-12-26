@@ -1,21 +1,16 @@
-// Fade-in observer
+// Fade-in
 const items = document.querySelectorAll('.fade');
-
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
+    if (entry.isIntersecting) entry.target.classList.add('show');
   });
 }, { threshold: 0.3 });
+items.forEach(i => observer.observe(i));
 
-items.forEach(item => observer.observe(item));
 
-
-// ===== FLOATING ROMANTIC GIF STICKERS =====
+// ===== FLOATING GIFS =====
 const container = document.querySelector('.floating-container');
 
-// 💖 YOUR ACTUAL GIF FILE NAMES
 const gifs = [
   'luv-u.gif',
   'cat-cute.gif',
@@ -35,10 +30,25 @@ function createSticker() {
   span.appendChild(img);
   container.appendChild(span);
 
-  setTimeout(() => {
-    span.remove();
-  }, 15000);
+  setTimeout(() => span.remove(), 15000);
 }
 
-// Slower + romantic
 setInterval(createSticker, 1200);
+
+
+// ===== TAP HEART + CAT BURST =====
+document.addEventListener('click', e => {
+  for (let i = 0; i < 8; i++) {
+    const heart = document.createElement('span');
+    heart.classList.add('burst');
+    heart.textContent = ['🤍','🐱','♡'][Math.floor(Math.random()*3)];
+
+    heart.style.left = e.clientX + 'px';
+    heart.style.top = e.clientY + 'px';
+    heart.style.setProperty('--x', (Math.random()*200 - 100) + 'px');
+    heart.style.setProperty('--y', (Math.random()*200 - 100) + 'px');
+
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 1200);
+  }
+});
