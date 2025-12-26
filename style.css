@@ -6,7 +6,7 @@
 }
 
 body {
-  background: linear-gradient(180deg, #0e0e0e, #1a1a1a);
+  background: radial-gradient(circle at top, #1a1a1a, #0b0b0b);
   color: #f5f5f5;
   text-align: center;
   overflow-x: hidden;
@@ -37,7 +37,7 @@ section {
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
-/* Fade animation */
+/* Fade-in */
 .fade {
   opacity: 0;
   transform: translateY(25px);
@@ -49,19 +49,72 @@ section {
   transform: translateY(0);
 }
 
-/* Overlay glow */
-.overlay {
+/* Fireflies */
+.fireflies {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(circle at top, rgba(255,255,255,0.12), transparent 60%),
-    linear-gradient(180deg, rgba(255,192,203,0.05), transparent 70%);
   z-index: 1;
 }
 
-/* Side GIFs (STATIC & AESTHETIC) */
+.firefly {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255,255,255,0.8);
+  animation: drift linear infinite;
+}
+
+/* Heartbeat effect (subtle) */
+.heartbeat {
+  animation: heartbeat 2.8s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.015); }
+  30% { transform: scale(0.995); }
+  45% { transform: scale(1.015); }
+}
+
+/* Firefly movement */
+@keyframes drift {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-120vh);
+    opacity: 1;
+  }
+}
+
+/* Side GIFs (static, calm) */
 .side-gif {
+  position: fixed;
+  width: 70px;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.side-gif.left {
+  left: 10px;
+  top: 40%;
+}
+
+.side-gif.right {
+  right: 10px;
+  top: 45%;
+}
+
+.side-gif.bottom {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}.side-gif {
   position: fixed;
   width: 70px;
   opacity: 0.85;
