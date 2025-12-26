@@ -1,17 +1,3 @@
-// Fade-in observer
-const items = document.querySelectorAll('.fade');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, { threshold: 0.3 });
-
-items.forEach(item => observer.observe(item));
-
-
-// Fireflies generator
 const fireflyContainer = document.querySelector('.fireflies');
 
 function createFirefly() {
@@ -20,9 +6,15 @@ function createFirefly() {
 
   f.style.left = Math.random() * 100 + 'vw';
   f.style.bottom = '-10px';
-  f.style.animationDuration = 12 + Math.random() * 10 + 's';
+  f.style.animationDuration = 14 + Math.random() * 10 + 's';
   f.style.opacity = Math.random();
 
+  fireflyContainer.appendChild(f);
+
+  setTimeout(() => f.remove(), 24000);
+}
+
+setInterval(createFirefly, 800);
   fireflyContainer.appendChild(f);
 
   setTimeout(() => f.remove(), 22000);
