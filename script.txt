@@ -28,5 +28,12 @@ function createFirefly() {
   setTimeout(() => f.remove(), 22000);
 }
 
+// Gentle dreamy pace
+setInterval(createFirefly, 700);
+  fireflyContainer.appendChild(f);
+
+  setTimeout(() => f.remove(), 22000);
+}
+
 // Slow, dreamy pace
 setInterval(createFirefly, 700);
