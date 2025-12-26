@@ -12,23 +12,33 @@ const observer = new IntersectionObserver(entries => {
 items.forEach(item => observer.observe(item));
 
 
-// Floating aesthetic stickers
+// ===== FLOATING ROMANTIC GIF STICKERS =====
 const container = document.querySelector('.floating-container');
-const stickers = ['🤍', '✨', '♡'];
+
+// 💖 YOUR ACTUAL GIF FILE NAMES
+const gifs = [
+  'luv-u.gif',
+  'cat-cute.gif',
+  'crystal-amaru.gif'
+];
 
 function createSticker() {
   const span = document.createElement('span');
   span.classList.add('sticker');
-  span.textContent = stickers[Math.floor(Math.random() * stickers.length)];
+
+  const img = document.createElement('img');
+  img.src = gifs[Math.floor(Math.random() * gifs.length)];
 
   span.style.left = Math.random() * 100 + 'vw';
-  span.style.animationDuration = 6 + Math.random() * 4 + 's';
+  span.style.animationDuration = 9 + Math.random() * 5 + 's';
 
+  span.appendChild(img);
   container.appendChild(span);
 
   setTimeout(() => {
     span.remove();
-  }, 10000);
+  }, 15000);
 }
 
-setInterval(createSticker, 700);
+// Slower + romantic
+setInterval(createSticker, 1200);
