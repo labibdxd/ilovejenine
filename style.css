@@ -22,9 +22,12 @@ section {
   letter-spacing: 2px;
 }
 
-.text p {
-  font-size: 1.2rem;
+.text p,
+.end p {
+  font-size: 1.15rem;
   line-height: 1.7;
+  max-width: 800px;
+  margin: auto;
 }
 
 .photo img {
@@ -34,7 +37,83 @@ section {
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
-.end p {
+/* Fade animation */
+.fade {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 1.1s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Overlay glow */
+.overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.12), transparent 60%),
+    linear-gradient(180deg, rgba(255,192,203,0.05), transparent 70%);
+  z-index: 1;
+}
+
+/* Side GIFs (STATIC & AESTHETIC) */
+.side-gif {
+  position: fixed;
+  width: 70px;
+  opacity: 0.85;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.side-gif.left {
+  left: 10px;
+  top: 40%;
+}
+
+.side-gif.right {
+  right: 10px;
+  top: 45%;
+}
+
+.side-gif.bottom {
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+}
+
+/* Floating stickers */
+.sticker-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.sticker {
+  position: absolute;
+  bottom: -20px;
+  font-size: 22px;
+  opacity: 0;
+  animation: floatSticker linear forwards;
+}
+
+@keyframes floatSticker {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.4);
+    opacity: 0;
+  }
+}.end p {
   max-width: 800px;
   margin: 0 auto 60px;
   line-height: 1.7;
