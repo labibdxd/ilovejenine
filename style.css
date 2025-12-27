@@ -22,7 +22,6 @@ section {
 /* Title */
 .hero h1 {
   font-size: 3.2rem;
-  letter-spacing: 2px;
   color: #ffd1dc;
   text-shadow: 0 0 15px rgba(255,182,193,0.6);
 }
@@ -34,7 +33,6 @@ section {
   line-height: 1.8;
   max-width: 800px;
   margin: auto;
-  color: #ffe6ec;
 }
 
 /* Photos */
@@ -59,31 +57,19 @@ section {
   transform: translateY(0);
 }
 
-/* Overlay */
-.overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at top,
-    rgba(255,182,193,0.18),
-    transparent 65%);
-  z-index: 1;
-}
-
 /* Floating emojis */
 .floating-container {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  overflow: hidden;
-  z-index: 2;
+  z-index: 5;
 }
 
 .sticker {
   position: absolute;
   bottom: -40px;
-  font-size: 20px;
-  opacity: 0.8;
+  font-size: 22px;
+  opacity: 0.9;
   animation: floatUp linear forwards;
 }
 
@@ -94,7 +80,7 @@ section {
   }
   to {
     transform: translateY(-110vh) scale(1.4);
-    opacity: 0.9;
+    opacity: 1;
   }
 }
 
@@ -102,8 +88,8 @@ section {
 .side-gif {
   position: fixed;
   width: 90px;
-  opacity: 0.85;
-  z-index: 2;
+  opacity: 0.9;
+  z-index: 4;
 }
 
 .side-gif.left {
@@ -125,4 +111,4 @@ section {
   0%, 100% { transform: scale(1); }
   20% { transform: scale(1.03); }
   40% { transform: scale(0.98); }
-  }
+}
