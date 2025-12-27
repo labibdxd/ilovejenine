@@ -12,21 +12,18 @@ body {
   overflow-x: hidden;
 }
 
-/* Sections */
 section {
   padding: 80px 20px;
   position: relative;
   z-index: 2;
 }
 
-/* Title */
 .hero h1 {
   font-size: 3.2rem;
   color: #ffd1dc;
   text-shadow: 0 0 15px rgba(255,182,193,0.6);
 }
 
-/* Text */
 .text p,
 .end p {
   font-size: 1.25rem;
@@ -35,17 +32,6 @@ section {
   margin: auto;
 }
 
-/* Photos */
-.photo img {
-  width: 85%;
-  max-width: 360px;
-  border-radius: 20px;
-  box-shadow:
-    0 25px 45px rgba(0,0,0,0.6),
-    0 0 20px rgba(255,182,193,0.25);
-}
-
-/* Fade animation */
 .fade {
   opacity: 0;
   transform: translateY(30px);
@@ -111,4 +97,34 @@ section {
   0%, 100% { transform: scale(1); }
   20% { transform: scale(1.03); }
   40% { transform: scale(0.98); }
+}
+
+/* Polaroid Frames */
+.polaroid {
+  background: #fff;
+  padding: 15px 15px 40px 15px;
+  display: inline-block;
+  border-radius: 12px;
+  box-shadow: 0 20px 35px rgba(0,0,0,0.4);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+  margin: 20px auto;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.polaroid img {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: 10px;
+  font-family: 'Georgia', serif;
 }
