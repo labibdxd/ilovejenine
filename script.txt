@@ -1,25 +1,32 @@
-const gifs = [
-  "cat-cute.gif",
-  "luv-u.gif",
-  "crystal-amaru.gif"
-];
+// Fade-in on scroll
+const items = document.querySelectorAll('.fade');
 
-const layer = document.querySelector(".gif-layer");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.3 });
 
-function spawnGif() {
-  const img = document.createElement("img");
-  img.src = gifs[Math.floor(Math.random() * gifs.length)];
-  img.className = "floating-gif";
+items.forEach(item => observer.observe(item));
 
-  img.style.left = Math.random() * 80 + 10 + "vw";
 
-  layer.appendChild(img);
+// Floating emoji stickers
+const container = document.querySelector('.floating-container');
+const stickers = ['🤍', '✨', '♡'];
 
-  setTimeout(() => img.remove(), 16000);
+function createSticker() {
+  const span = document.createElement('span');
+  span.className = 'sticker';
+  span.textContent = stickers[Math.floor(Math.random() * stickers.length)];
+
+  span.style.left = Math.random() * 100 + 'vw';
+  span.style.animationDuration = 6 + Math.random() * 4 + 's';
+
+  container.appendChild(span);
+
+  setTimeout(() => span.remove(), 10000);
 }
 
-/* One cute moment every 7 seconds */
-setInterval(spawnGif, 7000);}
-
-// Slow, dreamy pace
-setInterval(createFirefly, 700);
+setInterval(createSticker, 800);
