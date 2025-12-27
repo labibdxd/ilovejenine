@@ -127,4 +127,97 @@ section {
   color: #333;
   margin-top: 10px;
   font-family: 'Georgia', serif;
+}  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating emojis */
+.floating-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.sticker {
+  position: absolute;
+  bottom: -40px;
+  font-size: 22px;
+  opacity: 0.9;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-110vh) scale(1.4);
+    opacity: 1;
+  }
+}
+
+/* Side GIFs */
+.side-gif {
+  position: fixed;
+  width: 90px;
+  opacity: 0.9;
+  z-index: 4;
+}
+
+.side-gif.left {
+  left: 10px;
+  top: 40%;
+}
+
+.side-gif.right {
+  right: 10px;
+  top: 55%;
+}
+
+/* Heartbeat */
+.heartbeat {
+  animation: heartbeat 3s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.03); }
+  40% { transform: scale(0.98); }
+}
+
+/* Polaroid Frames */
+.polaroid {
+  background: #fff;
+  padding: 15px 15px 40px 15px;
+  display: inline-block;
+  border-radius: 12px;
+  box-shadow: 0 20px 35px rgba(0,0,0,0.4);
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+  margin: 20px auto;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.polaroid img {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.caption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: 10px;
+  font-family: 'Georgia', serif;
 }
